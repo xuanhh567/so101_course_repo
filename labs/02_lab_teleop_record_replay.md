@@ -2,11 +2,25 @@
 
 本次课的目标是让学生在已经完成主从臂判断和校准的基础上，根据 `device_simple.json` 和截图完成遥操作、录制和回放验证。
 
+## 主线位置
+
+### 上一段产物
+
+第一段已经完成 `leader` / `follower` 主从臂判断、当前 `tty` 识别和主从臂校准。
+
+### 本段要完成
+
+完成相机角色判断、当前 `dev` 识别、带相机遥操作、数据集录制和 replay 回放验证。
+
+### 下一段会用到什么
+
+第三段会使用本段产出的可用 `<DATASET_REPO_ID>`、replay 验证过的 episode，以及已经确认的 `top_camera` / `wrist_camera` 角色映射。
+
 ## 先修导学
 
 - [03. 具身智能数据采集导学](../primer/03_embodied_data_intro.md)
 
-建议先理解 `observation`、`action`、`episode`、`replay` 的含义，再进入本次课的数据采集与回放实验。
+`observation` 是机器人和相机看到的状态，`action` 是动作记录，`replay` 用来检查一个 episode 是否能被复现；如果这些概念不清楚，先查上面的数据采集导学。
 
 ## 课前准备
 
@@ -41,8 +55,9 @@ python3 tools/detect_system.py
 
 1. 打开 [device_simple.json](../tools/devices/device_simple.json)
 2. 在 `cameras` 里确认 `dev` 和 `by_path`
-3. 打开 `tools/devices/images/` 下的截图，确认哪一路俯视画面是 `top`，哪一路近距离手眼画面是 `wrist`
-4. 只有当截图判断和当前 `dev` 都对上之后，再去改命令
+3. 查看 `capture_status` 和 `capture_detail`，如果截图失败，先看失败原因
+4. 如果 `image` 有值，打开 `tools/devices/images/` 下的截图，确认哪一路俯视画面是 `top`，哪一路近距离手眼画面是 `wrist`
+5. 只有当截图判断和当前 `dev` 都对上之后，再去改命令
 
 ### 2. 遥操作前先确认
 
@@ -98,17 +113,17 @@ lerobot-replay \
   --episode=<EPISODE_INDEX>
 ```
 
-## 你需要修改的参数
+## 参数来源
 
-- `<FOLLOWER_PORT>`
-- `<LEADER_PORT>`
-- `<TOP_CAMERA_DEV>`
-- `<WRIST_CAMERA_DEV>`
-- `<DATASET_REPO_ID>`
-- `<TASK_DESCRIPTION>`
-- `<EPISODE_INDEX>`
+- `<FOLLOWER_PORT>`：来自最新 `device_simple.json` 中 `follower` 当前 `tty`
+- `<LEADER_PORT>`：来自最新 `device_simple.json` 中 `leader` 当前 `tty`
+- `<TOP_CAMERA_DEV>`：先通过截图判断 `top_camera`，再填写它当前 `dev`
+- `<WRIST_CAMERA_DEV>`：先通过截图判断 `wrist_camera`，再填写它当前 `dev`
+- `<DATASET_REPO_ID>`：本组为当前任务选择的数据集名称
+- `<TASK_DESCRIPTION>`：本组当前采集任务的一句话描述
+- `<EPISODE_INDEX>`：要 replay 的 episode 编号
 
-## 修改后应达到的效果
+## 预期效果
 
 - 先看到稳定的主从遥操作画面
 - 再完成至少 1 组可用数据录制

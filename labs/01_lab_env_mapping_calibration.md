@@ -2,13 +2,27 @@
 
 本次课的目标是让学生在已预装好的 LeRobot 环境中，学会读取 `device_simple.json`、识别主从臂，并完成主从臂校准。
 
+## 主线位置
+
+### 上一段产物
+
+这是主线教程的第一段，从已经接入的 SO-101 主从臂、可选相机和已准备好的 LeRobot 环境开始。
+
+### 本段要完成
+
+完成环境验证、设备扫描、`leader` / `follower` 物理角色判断、当前 `tty` 识别和主从臂校准。
+
+### 下一段会用到什么
+
+第二段会直接使用校准后的主从臂、可靠的 `leader` / `follower` 映射，以及每次操作前重新运行 `python3 tools/detect_system.py` 的习惯。
+
 ## 先修导学
 
 - [00. 课程导览](../primer/00_course_map.md)
 - [01. SO-101 导学](../primer/01_so101_intro.md)
 - [02. LeRobot 导学](../primer/02_lerobot_intro.md)
 
-建议先理解 `leader`、`follower`、角色绑定和 CLI 工作流，再进入本次课的端口识别与校准操作。
+`leader` / `follower` 是物理角色，`/dev/ttyACM*` 是当前系统分配的端口；如果这两个概念不清楚，先查上面的 SO-101 和 LeRobot 导学，再进入本次课的端口识别与校准操作。
 
 ## 课前准备
 
@@ -33,6 +47,8 @@ lerobot-find-port --help
 lerobot-calibrate --help
 python3 tools/detect_system.py
 ```
+
+`python3 tools/detect_system.py` 会写入 `tools/devices/device_simple.json`，并刷新 `tools/devices/images/` 下的相机截图。截图不需要或相机被占用时，可以使用 `python3 tools/detect_system.py --skip-capture`；需要在终端直接查看 JSON 时，可以使用 `python3 tools/detect_system.py --format json`。
 
 ### 2. 识别设备并绑定角色
 
@@ -68,12 +84,14 @@ lerobot-calibrate \
   --robot.port=<FOLLOWER_PORT>
 ```
 
-## 你需要修改的参数
+## 参数来源
 
-- `<LEADER_PORT>`：对应 `leader` 当前的 `tty`
-- `<FOLLOWER_PORT>`：对应 `follower` 当前的 `tty`
+- `<LEADER_PORT>`：先判断哪只物理臂是 `leader`，再从 `tools/devices/device_simple.json` 里找到它当前 `tty`
+- `<FOLLOWER_PORT>`：先判断哪只物理臂是 `follower`，再从 `tools/devices/device_simple.json` 里找到它当前 `tty`
 
-## 修改后应达到的效果
+`by-id` 帮助你识别物理设备，当前 `tty` 才是这一次写进 LeRobot 命令的端口。
+
+## 预期效果
 
 - 主臂和从臂分别完成零位校准
 - 终端出现保存结果或校准完成提示

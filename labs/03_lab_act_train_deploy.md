@@ -2,11 +2,25 @@
 
 本次课的目标是让学生基于第二次课采集的数据，改写训练命令，并根据当前设备扫描结果完成 rollout，同时看懂训练固定参数、输出目录和 checkpoint 的关系。
 
+## 主线位置
+
+### 上一段产物
+
+第二段已经得到 replay 验证过的数据集、明确的 `<DATASET_REPO_ID>`，并形成了操作前重新确认硬件映射的习惯。
+
+### 本段要完成
+
+完成 ACT 训练命令改写、训练输出目录理解、checkpoint 选择，以及 rollout 命令改写和部署验证。
+
+### 下一段会用到什么
+
+本段完成后，SO-101 + LeRobot 的最小教程闭环结束；后续阶段只继续补质量检查、排错路径和工具可靠性。
+
 ## 先修导学
 
 - [04. ACT 导学](../primer/04_act_intro.md)
 
-建议先理解 `dataset`、`checkpoint`、`rollout` 和 ACT 的基本作用，再进入本次课的训练与部署链路。
+ACT 从 dataset 学习动作策略，训练会产出 checkpoint，rollout 会把某个 checkpoint 部署回机器人；如果这条链路不清楚，先查上面的 ACT 导学。
 
 ## 课前准备
 
@@ -59,7 +73,8 @@ lerobot-train \
 
 - `follower`、`top_camera`、`wrist_camera` 仍然是这次真实连接的设备
 - checkpoint 路径要对照本组训练输出确认
-- 如果你临时换了设备或重插相机，先重新运行一次检测，不要直接沿用旧命令
+- 如果你临时换了设备、重插相机或移动了连接，先重新运行一次检测，不要直接沿用旧命令
+- rollout 应使用最新的 device_simple.json 里的当前 `tty` / `dev` 值
 
 确认完以后，再执行下面这条命令。
 
@@ -71,16 +86,16 @@ lerobot-rollout \
   --policy.path=<CHECKPOINT_PATH>
 ```
 
-## 你需要修改的参数
+## 参数来源
 
-- `<DATASET_REPO_ID>`
-- `<OUTPUT_DIR>`
-- `<FOLLOWER_PORT>`
-- `<TOP_CAMERA_DEV>`
-- `<WRIST_CAMERA_DEV>`
-- `<CHECKPOINT_PATH>`
+- `<DATASET_REPO_ID>`：来自第二段录制并 replay 验证过的数据集
+- `<OUTPUT_DIR>`：本组选择的训练输出目录，后续要能在这里找到 checkpoint
+- `<FOLLOWER_PORT>`：来自重新运行检测后 `follower` 当前 `tty`
+- `<TOP_CAMERA_DEV>`：来自重新运行检测后 `top_camera` 当前 `dev`
+- `<WRIST_CAMERA_DEV>`：来自重新运行检测后 `wrist_camera` 当前 `dev`
+- `<CHECKPOINT_PATH>`：来自训练输出目录中的目标 checkpoint
 
-## 修改后应达到的效果
+## 预期效果
 
 - 课堂上能成功启动训练
 - 能说明输出目录里 checkpoint 的位置
