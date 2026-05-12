@@ -9,7 +9,7 @@
 ## Medium Priority
 
 - Course materials are classroom-ready but not publication-ready: no site build, printable package, release checklist, or teacher handoff bundle.
-- Scoring criteria exist inside labs but are not normalized into reusable rubrics.
+- Some source language still reflects classroom use; keep future edits focused on tutorial flow rather than evaluation.
 - Detector behavior depends on optional Linux tools and available hardware; fallback behavior needs fixture coverage.
 
 ## Low Priority

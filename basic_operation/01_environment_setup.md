@@ -56,10 +56,10 @@ python3 tools/detect_system.py
 - 为什么本章只需要改 `<WORKSPACE_DIR>`，不需要改机械臂端口？
 - 如果 `lerobot-record --help` 找不到，说明是硬件问题还是环境问题？
 
-## 8. 本章提交要求
+## 8. 练习记录
 
-- 提交环境安装后的帮助命令截图
-- 提交一次 `python3 tools/detect_system.py` 的输出
+- 保留环境安装后的帮助命令截图
+- 保留一次 `python3 tools/detect_system.py` 的输出
 
 ---
 **上一节：** [00. 如何从检测结果改写命令](00_command_template_guide.md)

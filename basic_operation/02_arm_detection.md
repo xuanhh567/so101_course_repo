@@ -86,10 +86,10 @@ lerobot-find-port
 - `serial` 和 `by_path` 分别更适合描述哪类设备？
 - 如果断电重连后 `top_camera` 从 `/dev/video10` 变成 `/dev/video12`，你应该先重新检测还是直接照抄旧命令？
 
-## 8. 本章提交要求
+## 8. 练习记录
 
-- 提交一次更新后的 `device_simple.json`
-- 提交你记录下来的相机截图判断结果
+- 保留一次更新后的 `device_simple.json`
+- 记录下来的相机截图判断结果
 
 ---
 **上一节：** [01. 环境搭建与 CLI 验证](01_environment_setup.md)

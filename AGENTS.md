@@ -1,14 +1,15 @@
 # Repository Instructions
 
-This repository is a GSD-managed teaching reform project for an SO-101 + LeRobot course.
+This repository is a GSD-managed tutorial project for SO-101 + LeRobot.
 
 ## Working Principles
 
-- Preserve the student-facing path: `README.md` -> `primer/` -> `labs/`.
+- Preserve the tutorial path: `README.md` -> `primer/` -> `labs/`.
 - Keep commands copyable, but do not hide which placeholders students must change.
 - Prefer relative Markdown links so the course can be moved between classroom machines.
 - Treat `tools/detect_system.py` as classroom infrastructure: changes need manual hardware verification or a documented dry-run limitation.
 - Do not commit Python caches, large generated datasets, LeRobot checkpoints, or local training outputs.
+- Do not add non-tutorial workflow layers unless the project scope changes explicitly.
 
 ## GSD Workflow
 

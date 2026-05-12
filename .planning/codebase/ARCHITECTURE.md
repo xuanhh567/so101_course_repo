@@ -21,4 +21,4 @@ This is a documentation-and-tooling repository, not a packaged software applicat
 
 ## Architectural Gap
 
-The repository has a clear learning path but no build/release layer yet. There is no generated website, no printable handout pipeline, no command validation tests, and no structured rubric package for teachers.
+The repository has a clear learning path but no build/release layer yet. There is no generated website, no printable tutorial pipeline, and no command validation tests.

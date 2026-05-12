@@ -12,7 +12,7 @@
 
 ## 课前准备
 
-- 教师已完成 LeRobot 与依赖预装
+- LeRobot 与依赖已经预装完成
 - 学生座位上的主臂、从臂已经接入电脑
 - 相机可以接入，但第一次课不要求完成相机实验
 
@@ -86,13 +86,13 @@ lerobot-calibrate \
 - 用文字说明 `by-id` 和 `ttyACM*` 的区别
 - 如果课堂上没接相机，课后预习 `top_camera` 和 `wrist_camera` 的角色概念
 
-## 提交要求
+## 练习记录
 
 - `tools/devices/device_simple.json`
 - 你实际执行过的校准命令
 - 一张校准成功截图
 
-## 评分点
+## 自检清单
 
 - 能正确识别 `leader` 和 `follower`
 - 能正确辨认主臂和从臂
