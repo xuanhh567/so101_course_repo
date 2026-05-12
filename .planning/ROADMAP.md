@@ -78,7 +78,7 @@
 Run:
 
 ```bash
-$gsd-plan-phase 1
+$gsd-execute-phase 2
 ```
 
-Phase 1 should be treated as the stabilization pass for the tutorial-only scope.
+Phase 2 should harden the three main tutorials into a continuous, tool-guided learning path.
