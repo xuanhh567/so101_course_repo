@@ -2,11 +2,11 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: Phase 02 planned
+status: ready_to_plan
 last_updated: "2026-05-12T04:01:52.050Z"
 progress:
   total_phases: 4
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 4
   completed_plans: 2
   percent: 50
@@ -19,7 +19,7 @@ progress:
 See: `.planning/PROJECT.md` (updated 2026-05-12)
 
 **Core value:** 读者必须能按教程独立完成 SO-101 + LeRobot 的最小闭环，并理解每个命令参数来自哪里。
-**Current focus:** Phase 02 — tutorial-flow-hardening
+**Current focus:** Phase 3: Detector Reliability
 
 ## Current Status
 
@@ -32,7 +32,8 @@ See: `.planning/PROJECT.md` (updated 2026-05-12)
 - Phase 1 is complete and committed.
 - Phase 2 discussion context has been gathered in `.planning/phases/02-tutorial-flow-hardening/02-CONTEXT.md`.
 - Phase 2 planning is complete with 2 executable plans in `.planning/phases/02-tutorial-flow-hardening/`.
+- Phase 2 execution is complete and verified in `.planning/phases/02-tutorial-flow-hardening/02-VERIFICATION.md`.
 
 ## Next Step
 
-Run `$gsd-execute-phase 2` to execute tutorial flow hardening.
+Run `$gsd-discuss-phase 3` to start Detector Reliability context gathering.

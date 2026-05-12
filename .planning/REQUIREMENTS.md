@@ -14,10 +14,10 @@
 
 ### Tutorial Content
 
-- [ ] **CONT-01**: 三段主教程均包含目标、准备、步骤、参数来源、预期效果、练习记录和自检清单。
-- [ ] **CONT-02**: `primer/` 提供足够概念背景，但不阻塞读者进入实际操作。
-- [ ] **CONT-03**: `basic_operation/` 作为细化参考，只服务补查，不成为第二套主线。
-- [ ] **CONT-04**: Word 源材料仅作为历史来源；需要补入教程的内容应转成 Markdown。
+- [x] **CONT-01**: 三段主教程均包含目标、准备、步骤、参数来源、预期效果、练习记录和自检清单。
+- [x] **CONT-02**: `primer/` 提供足够概念背景，但不阻塞读者进入实际操作。
+- [x] **CONT-03**: `basic_operation/` 作为细化参考，只服务补查，不成为第二套主线。
+- [x] **CONT-04**: Word 源材料仅作为历史来源；需要补入教程的内容应转成 Markdown。
 
 ### Device Tutorial Tooling
 
@@ -66,10 +66,10 @@
 | TUT-02 | Phase 1 | Pending |
 | TUT-03 | Phase 1 | Pending |
 | TUT-04 | Phase 1 | Pending |
-| CONT-01 | Phase 2 | Pending |
-| CONT-02 | Phase 2 | Pending |
-| CONT-03 | Phase 2 | Pending |
-| CONT-04 | Phase 2 | Pending |
+| CONT-01 | Phase 2 | Complete |
+| CONT-02 | Phase 2 | Complete |
+| CONT-03 | Phase 2 | Complete |
+| CONT-04 | Phase 2 | Complete |
 | TOOL-01 | Phase 3 | Pending |
 | TOOL-02 | Phase 3 | Pending |
 | TOOL-03 | Phase 3 | Pending |
@@ -86,4 +86,4 @@
 
 ---
 *Requirements defined: 2026-05-12*
-*Last updated: 2026-05-12 after tutorial-only scope update*
+*Last updated: 2026-05-12 after Phase 2 tutorial flow hardening*

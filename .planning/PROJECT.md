@@ -15,12 +15,13 @@
 - ✓ 三段式教程主线已经形成：环境与校准、遥操作与数据、ACT 训练与部署。
 - ✓ 检测脚本已经能输出 `device_simple.json` 并保存相机截图。
 - ✓ 导学、主线教程和细化操作章节已经初步分层。
+- ✓ Phase 2 已把三段主教程连接成连续路径，并补充工具使用说明、参数来源和来源材料边界。
 
 ### Active
 
 - [ ] 把仓库定位从“教改项目/实验书”收窄为“可顺序学习的教程”。
 - [ ] 清理评分、rubric、教师交付包等非教程目标。
-- [ ] 统一教程导航，让读者知道先读什么、做什么、遇到问题查哪里。
+- [x] 统一教程导航，让读者知道先读什么、做什么、遇到问题查哪里。
 - [ ] 把“提交要求”改成“练习记录”，把“评分点”改成“自检清单”。
 - [ ] 增加内容质量检查，覆盖 Markdown 链接、命令占位符和旧路径。
 - [ ] 为 `tools/detect_system.py` 增加 fixture 级测试，降低修改脚本的风险。
@@ -54,8 +55,8 @@
 | 新仓库命名为 `so101_course_repo` | 用户选择 1B，偏课程发布语义 | — Pending |
 | 项目定位改为教程仓库 | 用户明确只需要一套教程，不需要评价机制 | — Pending |
 | 移除评价机制目标 | 评分表、rubric、作业评价不再进入 v1 范围 | — Pending |
-| 保留三段式闭环主线 | 当前 labs 已围绕最小闭环组织，适合作为教程主线 | — Pending |
-| 保留 Word 源材料 | 只作为历史来源，不驱动教程架构 | — Pending |
+| 保留三段式闭环主线 | 当前 labs 已围绕最小闭环组织，适合作为教程主线 | Validated in Phase 2 |
+| 保留 Word 源材料 | 只作为历史来源，不驱动教程架构 | Validated in Phase 2 |
 
 ## Evolution
 
@@ -75,4 +76,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-05-12 after narrowing scope to tutorial-only*
+*Last updated: 2026-05-12 after Phase 2 tutorial flow hardening*
