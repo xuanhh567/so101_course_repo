@@ -2,8 +2,8 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: Phase 01 complete
-last_updated: "2026-05-12T03:39:06.982Z"
+status: Phase 02 context gathered
+last_updated: "2026-05-12T00:00:00+08:00"
 progress:
   total_phases: 4
   completed_phases: 1
@@ -19,7 +19,7 @@ progress:
 See: `.planning/PROJECT.md` (updated 2026-05-12)
 
 **Core value:** 读者必须能按教程独立完成 SO-101 + LeRobot 的最小闭环，并理解每个命令参数来自哪里。
-**Current focus:** Phase 1: Tutorial Foundation
+**Current focus:** Phase 2: Tutorial Flow Hardening
 
 ## Current Status
 
@@ -29,7 +29,9 @@ See: `.planning/PROJECT.md` (updated 2026-05-12)
 - Codebase map created under `.planning/codebase/`.
 - Scope narrowed to a tutorial-only repository; evaluation mechanisms are out of scope.
 - GSD config uses standard mode, standard granularity, parallel execution, committed planning docs, research, plan check, verifier, and Nyquist validation.
+- Phase 1 is complete and committed.
+- Phase 2 discussion context has been gathered in `.planning/phases/02-tutorial-flow-hardening/02-CONTEXT.md`.
 
 ## Next Step
 
-Run `$gsd-plan-phase 1` to produce an executable stabilization plan for the tutorial-only scope.
+Run `$gsd-plan-phase 2` to produce an executable plan for tutorial flow hardening.
