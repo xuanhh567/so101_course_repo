@@ -4,7 +4,11 @@
 
 - Chinese is the primary instructional language.
 - Keep the student path direct and operational.
-- Each lab should contain: prerequisites, class goals, steps, placeholders to modify, expected outcomes, submission requirements, and scoring points.
+- `README.md` is an index-style entry for navigation and orientation.
+- `labs/` is the main operational tutorial path.
+- `primer/` is concept reference material.
+- `basic_operation/` is lookup reference material.
+- Each lab should contain: goal, prerequisites, steps, placeholders to modify, expected outcomes, practice records, and self-checks.
 - Use role names consistently: `leader`, `follower`, `top_camera`, `wrist_camera`, and optional `side_camera`.
 
 ## Commands
