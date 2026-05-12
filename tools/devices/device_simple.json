@@ -1,0 +1,88 @@
+{
+  "timestamp": "2026-05-07T19:18:52.064276",
+  "device_simple_path": "tools/devices/device_simple.json",
+  "images_dir": "tools/devices/images",
+  "arms": {
+    "5B41532613": {
+      "tty": "/dev/ttyACM0",
+      "status": "connected",
+      "port": "/dev/serial/by-id/usb-1a86_USB_Single_Serial_5B41532613-if00",
+      "serial": "5B41532613"
+    },
+    "5B42137834": {
+      "tty": "/dev/ttyACM1",
+      "status": "connected",
+      "port": "/dev/serial/by-id/usb-1a86_USB_Single_Serial_5B42137834-if00",
+      "serial": "5B42137834"
+    }
+  },
+  "cameras": {
+    "Sonix_Technology_Co.__Ltd._USB2.0_HD_UVC_WebCam": {
+      "dev": "/dev/video0",
+      "by_id": "/dev/v4l/by-id/usb-Sonix_Technology_Co.__Ltd._USB2.0_HD_UVC_WebCam-video-index0",
+      "by_path": "/dev/v4l/by-path/pci-0000:00:14.0-usb-0:7:1.0-video-index0",
+      "serial": "Sonix_Technology_Co.__Ltd._USB2.0_HD_UVC_WebCam",
+      "product": "Sonix Technology Co.  Ltd. USB2.0 HD UVC WebCam",
+      "color_stream": true,
+      "stream_info": {
+        "codec_name": "rawvideo",
+        "pix_fmt": "yuyv422",
+        "width": 640,
+        "height": 480
+      },
+      "status": "connected",
+      "image": "images/Sonix_Technology_Co___Ltd__USB2_0_HD_UVC_WebCam__video0.jpg",
+      "capture_status": "saved",
+      "capture_detail": "ffmpeg 已保存截图。"
+    },
+    "pci-0000:00:14.0-usb-0:1.4:1.4": {
+      "dev": "/dev/video10",
+      "by_id": "",
+      "by_path": "/dev/v4l/by-path/pci-0000:00:14.0-usb-0:1.4:1.4-video-index0",
+      "serial": "pci-0000:00:14.0-usb-0:1.4:1.4",
+      "product": "pci-0000:00:14.0-usb-0:1.4:1.4 ",
+      "color_stream": null,
+      "stream_info": {},
+      "status": "connected",
+      "image": "",
+      "capture_status": "failed",
+      "capture_detail": "ffmpeg 无法抓取有效彩色画面: Error opening input files: Input/output error"
+    },
+    "icSpring_icspring_camera_20240307110322": {
+      "dev": "/dev/video2",
+      "by_id": "/dev/v4l/by-id/usb-icSpring_icspring_camera_20240307110322-video-index0",
+      "by_path": "/dev/v4l/by-path/pci-0000:00:14.0-usb-0:1.1:1.0-video-index0",
+      "serial": "icSpring_icspring_camera_20240307110322",
+      "product": "icSpring icspring camera 20240307110322",
+      "color_stream": true,
+      "stream_info": {
+        "codec_name": "mjpeg",
+        "pix_fmt": "yuvj422p",
+        "width": 640,
+        "height": 480
+      },
+      "status": "connected",
+      "image": "images/icSpring_icspring_camera_20240307110322__video2.jpg",
+      "capture_status": "saved",
+      "capture_detail": "ffmpeg 已保存截图。"
+    },
+    "Orbbec_R__Orbbec_Gemini_335_CP15641000AW": {
+      "dev": "/dev/video4",
+      "by_id": "/dev/v4l/by-id/usb-Orbbec_R__Orbbec_Gemini_335_CP15641000AW-video-index0",
+      "by_path": "/dev/v4l/by-path/pci-0000:00:14.0-usb-0:1.4:1.0-video-index0",
+      "serial": "Orbbec_R__Orbbec_Gemini_335_CP15641000AW",
+      "product": "Orbbec R  Orbbec Gemini 335 CP15641000AW",
+      "color_stream": null,
+      "stream_info": {},
+      "status": "connected",
+      "image": "",
+      "capture_status": "failed",
+      "capture_detail": "ffmpeg 无法抓取有效彩色画面: Error opening input files: Input/output error"
+    }
+  },
+  "summary": {
+    "arms": 2,
+    "cameras": 4,
+    "captured_images": 2
+  }
+}
