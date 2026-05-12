@@ -20,6 +20,12 @@
 4. 用演示数据训练 ACT 策略
 5. 把 checkpoint 部署回机器人
 
+每段产物：
+
+- 第一段产物：校准后的 `leader` / `follower` 主从臂，以及每次操作前重新确认设备映射的习惯。
+- 第二段产物：replay 验证过的数据集、明确的 `<DATASET_REPO_ID>`，以及确认过的相机角色映射。
+- 第三段产物：ACT 训练输出和 checkpoint 理解，以及可改写的 rollout 命令。
+
 ## 概念参考
 
 `primer/` 是概念参考，不是进入主线教程前的必读门槛。遇到概念不清楚时再回来查。
@@ -33,6 +39,8 @@
 ## 操作补查
 
 `basic_operation/` 是操作补查材料，不是第二条主线。主线教程里某个步骤不清楚时，按主题跳到对应章节。
+
+如果主线教程中的某一步卡住，先回到这里按主题补查；不要把 `basic_operation/` 当成另一条从头读到尾的主线。
 
 1. [00. 如何从检测结果改写命令](basic_operation/00_command_template_guide.md)
 2. [01. 环境搭建与 CLI 验证](basic_operation/01_environment_setup.md)
@@ -52,6 +60,12 @@ python3 tools/detect_system.py --skip-capture
 python3 tools/detect_system.py --format json
 ```
 
+三条命令的用途：
+
+- `python3 tools/detect_system.py`：完整扫描，写入 `tools/devices/device_simple.json`，刷新 `tools/devices/images/`，并打印文本摘要。
+- `python3 tools/detect_system.py --skip-capture`：只扫描设备，不抓取截图；相机被占用、截图太慢或本次不需要截图时使用。
+- `python3 tools/detect_system.py --format json`：在终端输出同一份扫描结果的 JSON，方便复制或进一步检查。
+
 检测工具会输出：
 
 - 当前识别到的设备
@@ -59,6 +73,7 @@ python3 tools/detect_system.py --format json
 - 相机当前 `dev` 与 `by-path`
 - `tools/devices/images/` 下的相机截图
 - [device_simple.json](tools/devices/device_simple.json)
+- `capture_status` 和 `capture_detail`，用于判断截图是保存、跳过还是失败
 
 如果你现在最大的困惑是“不知道怎么分清主臂、从臂、top 相机、wrist 相机”，先看：
 
@@ -78,6 +93,15 @@ python3 tools/detect_system.py --format json
 - `by-id` / `by-path`：帮助你识别这是哪一个物理设备
 - 当前 `tty` / `dev`：用于这一次实际执行的 LeRobot 命令
 
+常用字段对应关系：
+
+- `arms.*.tty`：判断物理角色后，填写 `<LEADER_PORT>` / `<FOLLOWER_PORT>`
+- `arms.*.port` 或 `by-id`：帮助识别是哪只物理机械臂
+- `cameras.*.dev`：判断截图角色后，填写 `<TOP_CAMERA_DEV>` / `<WRIST_CAMERA_DEV>`
+- `cameras.*.by_path` / `by_id`：帮助识别是哪一路物理相机
+- `cameras.*.image`：截图保存成功时，对应 `tools/devices/images/` 下的图片
+- `capture_status` / `capture_detail`：说明截图保存、跳过或失败的原因
+
 ## 练习记录
 
 建议每一段都保留这些记录，方便自己回看和排错：
@@ -89,6 +113,7 @@ python3 tools/detect_system.py --format json
 ## 来源材料
 
 `source_materials/` 保存手工搭建的 Word 来源材料。后续完善教程时，应参照这些材料，把有价值的内容提炼进 Markdown 教程，而不是让 Word 文件成为最终阅读路径。
+Phase 2 只使用这些材料修补三篇主线教程的连续性缺口，不做完整 Word 迁移。
 
 - [来源材料索引](source_materials/README.md)
 
