@@ -3,7 +3,7 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: Phase 02 planned
-last_updated: "2026-05-12T03:58:56.419Z"
+last_updated: "2026-05-12T04:01:52.050Z"
 progress:
   total_phases: 4
   completed_phases: 1
@@ -19,7 +19,7 @@ progress:
 See: `.planning/PROJECT.md` (updated 2026-05-12)
 
 **Core value:** 读者必须能按教程独立完成 SO-101 + LeRobot 的最小闭环，并理解每个命令参数来自哪里。
-**Current focus:** Phase 2: Tutorial Flow Hardening
+**Current focus:** Phase 02 — tutorial-flow-hardening
 
 ## Current Status
 
