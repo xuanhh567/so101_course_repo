@@ -1,28 +1,39 @@
 ---
 phase: 02-tutorial-flow-hardening
-status: passed
-depth: plan-check
+status: clean
+depth: standard
 reviewed: 2026-05-12
 ---
 
-# Phase 02 Plan Review
+# Phase 02 Code Review
 
-## Result
+## Findings
 
-Plans are ready for execution.
+No issues found.
+
+## Scope
+
+Reviewed documentation files changed during Phase 2 execution:
+
+- `README.md`
+- `labs/01_lab_env_mapping_calibration.md`
+- `labs/02_lab_teleop_record_replay.md`
+- `labs/03_lab_act_train_deploy.md`
+- `basic_operation/00_command_template_guide.md`
+- `source_materials/README.md`
 
 ## Checks
 
-- Two plans exist: `02-01-PLAN.md` and `02-02-PLAN.md`.
-- Wave order is valid: `02-01` runs first, `02-02` depends on `02-01`.
-- Phase requirements `CONT-01`, `CONT-02`, `CONT-03`, and `CONT-04` are covered.
-- Decision coverage gate passed: 19/19 trackable `02-CONTEXT.md` decisions are covered by plans.
-- Each task includes `read_first`, `action`, `verify`, and `acceptance_criteria`.
-- `tools/detect_system.py` compiles and its help output exposes `--format` and `--skip-capture`.
+- The main route remains `README.md -> labs/`.
+- Three lab files contain `主线位置`, `上一段产物`, `本段要完成`, and `下一段会用到什么`.
+- Three lab files contain `参数来源`, `预期效果`, `练习记录`, `自检清单`, and `细化参考`.
+- Tool guidance covers `python3 tools/detect_system.py`, `--skip-capture`, `--format json`, `device_simple.json`, `tools/devices/images`, `capture_status`, and `capture_detail`.
+- Tutorial-facing files do not contain `评分`, `评价`, `rubric`, or `提交要求`.
+- Relative Markdown links in touched files resolve.
+- `tools/detect_system.py` still compiles and its help output lists `--format` and `--skip-capture`.
 
 ## Residual Risk
 
-- This is a documentation planning phase. Real SO-101 hardware behavior and local LeRobot command variants still need manual or execution-time verification.
-- Official LeRobot examples currently show some command forms that differ from this repository's command templates. Plans intentionally require parameter-source clarity and local command verification rather than silent command replacement.
+This was a documentation-only phase. It did not validate LeRobot commands against real SO-101 hardware or the locally installed LeRobot CLI version.
 
 ## VERIFICATION PASSED
