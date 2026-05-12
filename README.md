@@ -1,27 +1,28 @@
 # SO-101 LeRobot 教程
 
-这套仓库是一套 SO-101 + LeRobot 上手教程，目标是带读者从环境检查、设备识别、遥操作、数据采集、ACT 训练一路走到策略部署。推荐路径是：先运行 `detect_system` 扫描当前硬件，再根据 `device_simple.json` 和相机截图手动填写 LeRobot 命令。
+这是一套 SO-101 + LeRobot 上手教程，目标是带读者从环境检查、设备识别、遥操作、数据采集、ACT 训练一路走到策略部署。
 
-现在仓库采用“两层结构”：
+本仓库的主路径是 `README.md -> labs/`。`primer/` 用来查概念，`basic_operation/` 用来补查细节，`source_materials/` 保存手工搭建的原始材料供后续提炼。
 
-- `primer/`：概念导学，先理解 SO-101、LeRobot、数据采集和 ACT
-- `labs/`：三段式教程主线，带着导学知识进入具体操作
+## 主线教程
 
-## 当前版本
+按下面顺序完成三段教程：
 
-- 当前教程主线：`三段式闭环版`
-- 历史稳定版本标签：`v1-eight-chapters`
-- 历史版本含义：保留原始 `8` 章节拆分结构，便于回溯更细的操作说明
+1. [第一段：环境验证、设备映射与主从臂校准](labs/01_lab_env_mapping_calibration.md)
+2. [第二段：遥操作、数据采集与回放](labs/02_lab_teleop_record_replay.md)
+3. [第三段：ACT 训练启动与策略部署](labs/03_lab_act_train_deploy.md)
 
-## 教程主入口
+三段教程对应一条最小闭环：
 
-1. [第一次课：环境验证、设备映射与主从臂校准](labs/01_lab_env_mapping_calibration.md)
-2. [第二次课：遥操作、数据采集与回放](labs/02_lab_teleop_record_replay.md)
-3. [第三次课：ACT 训练启动与策略部署](labs/03_lab_act_train_deploy.md)
+1. 识别硬件和环境
+2. 校准主从臂
+3. 通过遥操作采集演示数据
+4. 用演示数据训练 ACT 策略
+5. 把 checkpoint 部署回机器人
 
-## 导学主入口
+## 概念参考
 
-建议学生先按下面顺序阅读导学，再进入三次课实验：
+`primer/` 是概念参考，不是进入主线教程前的必读门槛。遇到概念不清楚时再回来查。
 
 1. [00. 课程导览](primer/00_course_map.md)
 2. [01. SO-101 导学](primer/01_so101_intro.md)
@@ -29,24 +30,19 @@
 4. [03. 具身智能数据采集导学](primer/03_embodied_data_intro.md)
 5. [04. ACT 导学](primer/04_act_intro.md)
 
-## 学习节奏
+## 操作补查
 
-### 第一段
+`basic_operation/` 是操作补查材料，不是第二条主线。主线教程里某个步骤不清楚时，按主题跳到对应章节。
 
-- 验证 CLI、识别硬件、绑定角色、完成校准
-- 完成后应能看懂报告并写对主从臂命令
-
-### 第二段
-
-- 重点改写相机相关占位符
-- 完成遥操作、录制数据、回放验证
-- 完成后应能采到一份可回放的数据
-
-### 第三段
-
-- 启动 ACT 训练并理解输出目录和日志
-- 训练收敛可以继续等待
-- 使用 checkpoint 完成 rollout
+1. [00. 如何从检测结果改写命令](basic_operation/00_command_template_guide.md)
+2. [01. 环境搭建与 CLI 验证](basic_operation/01_environment_setup.md)
+3. [02. 设备映射与角色绑定](basic_operation/02_arm_detection.md)
+4. [02A. 如何根据截图和 device_simple 判断设备角色](basic_operation/02a_device_roles_filling_guide.md)
+5. [03. 主从臂校准](basic_operation/03_calibration.md)
+6. [04. 带相机的遥操作](basic_operation/04_teleoperation.md)
+7. [05. 数据采集与回放](basic_operation/05_dataset_recording.md)
+8. [06. ACT 训练](basic_operation/06_act_training.md)
+9. [07. 策略部署](basic_operation/07_policy_deployment.md)
 
 ## 核心工具
 
@@ -64,15 +60,13 @@ python3 tools/detect_system.py --format json
 - `tools/devices/images/` 下的相机截图
 - [device_simple.json](tools/devices/device_simple.json)
 
-## detect_system 结果怎么用
-
-如果你现在最大的困惑是“不知道怎么分清主臂、从臂、top 相机、wrist 相机”，请先看：
+如果你现在最大的困惑是“不知道怎么分清主臂、从臂、top 相机、wrist 相机”，先看：
 
 - [02A. 如何根据截图和 device_simple 判断设备角色](basic_operation/02a_device_roles_filling_guide.md)
 
-建议学生每次都按同一顺序操作：
+建议每次都按同一顺序操作：
 
-1. 先运行 `python3 tools/detect_system.py`
+1. 运行 `python3 tools/detect_system.py`
 2. 打开 [device_simple.json](tools/devices/device_simple.json)
 3. 先看机械臂的 `tty` 和 `by-id`
 4. 再看相机的 `dev`、`by-path` 和 `image`
@@ -82,49 +76,21 @@ python3 tools/detect_system.py --format json
 这里要特别区分两类字段：
 
 - `by-id` / `by-path`：帮助你识别这是哪一个物理设备
-- 当前 `tty` / `dev`：用于本次实际执行的 LeRobot 命令
+- 当前 `tty` / `dev`：用于这一次实际执行的 LeRobot 命令
 
-## 这门课里你必须真正看懂的 4 件事
+## 练习记录
 
-- `leader` 和 `follower` 怎么区分
-- `top_camera` 和 `wrist_camera` 怎么区分
-- 为什么 `by-id` / `by-path` 更适合识别物理设备
-- 为什么 LeRobot 命令里真正要填的是当前 `tty` / `dev`
-
-## 导学资料来源说明
-
-- 实验主线看 `labs/`
-- 概念理解看 `primer/`
-- 原网站参考链接统一放在每份导学文末的“资料来源”区块
-- 链接优先使用官方文档、原始论文和官方仓库页面
-
-## 统一角色名
-
-- `leader`
-- `follower`
-- `top_camera`
-- `wrist_camera`
-- `side_camera`（可选扩展）
-
-## 建议保留的练习记录
+建议每一段都保留这些记录，方便自己回看和排错：
 
 - 自己修改后的命令
 - 改了哪些参数、这些值来自 `device_simple.json` 的哪一项
-- 每一段至少保留一次终端截图或 `device_simple.json`
+- 终端截图、训练输出目录截图或本次的 `device_simple.json`
 
-## 附录与细化参考
+## 来源材料
 
-下面这些文档保留为细化章节，用于补查某个具体操作：
+`source_materials/` 保存手工搭建的 Word 来源材料。后续完善教程时，应参照这些材料，把有价值的内容提炼进 Markdown 教程，而不是让 Word 文件成为最终阅读路径。
 
-1. [00. 如何从检测结果改写命令](basic_operation/00_command_template_guide.md)
-2. [01. 环境搭建与 CLI 验证](basic_operation/01_environment_setup.md)
-3. [02. 设备映射与角色绑定](basic_operation/02_arm_detection.md)
-4. [02A. 如何根据截图和 device_simple 判断设备角色](basic_operation/02a_device_roles_filling_guide.md)
-5. [03. 主从臂校准](basic_operation/03_calibration.md)
-6. [04. 带相机的遥操作](basic_operation/04_teleoperation.md)
-7. [05. 数据采集与回放](basic_operation/05_dataset_recording.md)
-8. [06. ACT 训练](basic_operation/06_act_training.md)
-9. [07. 策略部署](basic_operation/07_policy_deployment.md)
+- [来源材料索引](source_materials/README.md)
 
 ## 推荐参考
 
